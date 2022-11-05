@@ -6,10 +6,14 @@ RegisterCommand('carhud', function(source, args)
     else
         if (editorStatus ~= "closeEditor") then
             editorStatus = "closeEditor"
-            print(editorStatus)
+            if (Config.DEBUG) then
+                print(editorStatus)
+            end
         else
             editorStatus = "openEditor"
-            print(editorStatus)
+            if (Config.DEBUG) then
+                print(editorStatus)
+            end
         end
     end
 end)
@@ -31,8 +35,14 @@ Citizen.CreateThread(function()
             end
             if (editorStatus ~= "closeEditor") then
                 SetNuiFocus(true, true)
+                if (Config.DEBUG) then
+                    print("Editor UI Opened")
+                end
             else
                 SetNuiFocus(false, false)
+                if (Config.DEBUG) then
+                    print("Editor UI Closed")
+                end
             end
             local vehicleHealth = GetVehicleEngineHealth(vehicle)
             local vehicleFuel = GetVehicleFuelLevel(vehicle)
@@ -59,10 +69,14 @@ end)
 RegisterNUICallback('exitEditor', function(data)
     if (editorStatus ~= "closeEditor") then
         editorStatus = "closeEditor"
-        print(editorStatus)
+        if (Config.DEBUG) then
+            print(editorStatus)
+        end
     else
         editorStatus = "openEditor"
-        print(editorStatus)
+        if (Config.DEBUG) then
+            print(editorStatus)
+        end
     end
 end)
 
