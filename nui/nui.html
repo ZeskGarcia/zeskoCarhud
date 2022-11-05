@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeskoCarhud</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="ui">
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Carhud Customization</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeEditor()"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Speedometer Settings</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Carhud UI</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                            <div class="row">
+                                <div class="sCar">
+                                    <div class="fontSizeSite">
+                                        <h5 class="SiteTitle">
+                                            Speedometer Text Size
+                                        </h5>
+                                        <select class="form-select fontSelection" id="fontSizeSelectBox" aria-label="Default select example">
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="fontColorSite">
+                                      <h5 class="SiteTitle">
+                                        Speedometer Text Color
+                                      </h5>
+                                      <select class="form-select colorSelection" id="speedColorSelectBox" aria-label="Select a color for the speed text">
+
+                                      </select>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="sCar">
+                                  <div class="carhudBgColorSite">
+                                    <h5 class="SiteTitle">
+                                      Carhud Background Color
+                                    </h5>
+                                    <select class="form-select bgCarhudSelection" id="carhudBgColorSelectBox" aria-label="Select a color for the carhud background">
+
+                                    </select>
+                                  </div>
+                                  <div class="speedFontFamilySite">
+                                    <h5 class="SiteTitle">
+                                      Speed Font
+                                    </h5>
+                                    <select class="form-select speedFontSelect" id="speedFontSelectBox" aria-label="Select a color for the carhud background">
+  
+                                    </select>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                          <div class="row">
+                            <div class="sCar">
+                              <div class="MoveSpeedometerFromSite">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" onclick="checkIfCheckedMoveSpeedo()">
+                                  <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Hide Speedometer
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="hideGearboxSite">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="GearflexCheckIndeterminate" onclick="checkIfCheckedHideGearbox()">
+                                  <label class="form-check-label" for="GearflexCheckIndeterminate">
+                                    Hide Current Gear
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="sCar">
+                              <div class="MoveSpeedometerFromSite">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="fuelflexCheckIndeterminate" onclick="checkIfCheckedFuel()">
+                                  <label class="form-check-label" for="fuelflexCheckIndeterminate">
+                                    Hide Fuel + Vehicle Health
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>       
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeEditor()">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="saveCurrentConfigValues()">Save changes</button>
+                </div>
+              </div>
+            </div>
+        </div>               
+    </div>
+    <div class="carhud">
+      <h3 class="speed">
+        <span class="speedText">999</span>&nbsp;&nbsp; <span class="speedUnit">KMh</span>
+      </h3>
+      <h3 class="fuelText">
+        <i class="far fa-gas-pump"></i>&nbsp;&nbsp;<span class="fuelTextt">100%</span>
+      </h3>
+      <div class="fuelBottom">
+
+      </div>
+      <div class="health">
+        <h3 class="healthText">
+          <i class="far fa-shield"></i>&nbsp;&nbsp;<span class="healthTextt">100%</span>
+        </h3>
+      </div>
+    </div>
+    <div class="gearBox">
+      <div class="icon">
+        &nbsp;
+      </div>
+      <div class="gearText">
+        <h3 class="gearTextt">1</h3>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>
