@@ -10,8 +10,7 @@ window.addEventListener('message', async (event) => {
                 Speedo.style.display = "none";
             } else {
                 Speedo.style.display = "block";
-            }
-            
+            }          
         } else {
             $('.carhud').fadeIn(500);
         }
@@ -42,8 +41,7 @@ window.addEventListener('message', async (event) => {
         $('.gearBox').fadeOut(500);
         started = false;
     }
-})
-
+});
 function setupAllComponents() {
     let sValueSpeedo = document.querySelector('#flexCheckIndeterminate');
     let sValue = localStorage.getItem('hideSpeedo');
@@ -133,7 +131,6 @@ function setupAllComponents() {
     $('.speed').css('color', curColor);
     $('.fuelText').css('color', curColor);
     $('.healthText').css('color', curColor);
-
     let curSpeedFont = "black";
     let currentSpeedFont = localStorage.getItem('currentSpeedFont'); // get current font size from localStorage // current font size value, not real size from localStorage only to change it later from localStorage
     if (currentSpeedFont) {
@@ -143,7 +140,6 @@ function setupAllComponents() {
     }
     $('.speed').css('font-family', curSpeedFont)
 }
-
 function configureSpeedometerSettings() {
     let selectMenu = $('.fontSelection');
     let fontSizes = [
@@ -187,7 +183,7 @@ function configureSpeedometerSettings() {
             name: '52px',
             value: 52
         }
-    ]
+    ];
     let currentFontSize = localStorage.getItem('currentFontSize'); // get current font size from localStorage
     let curFont = 8; // current font size value, not real size from localStorage only to change it later from localStorage
     if (currentFontSize) {
@@ -325,7 +321,6 @@ function configureSpeedometerSettings() {
     });
     speedFont.html(appendableSpeedFontList)
 }
-
 function setNewValuesToFont(type, v) {
     if (type == "size") {
         $('.speed').css('font-size', v+"px");
@@ -344,7 +339,6 @@ function setNewValuesToFont(type, v) {
         configureSpeedometerSettings()
     }
 }
-
 function saveCurrentConfigValues() {
     var fontSizeE = document.getElementById("fontSizeSelectBox").value; // getting selected value from FontSizeSelectBox
     let fontSizeV;
@@ -379,7 +373,6 @@ function saveCurrentConfigValues() {
         console.log(fontCE2)
     }
 }
-
 function closeEditor() {
     if (opened) {
         $.post('https://zeskoCarhud/exitEditor', JSON.stringify({}));
@@ -427,7 +420,6 @@ function setNewValue(type, value) {
         }
     }
 }
-
 function checkIfCheckedMoveSpeedo() {
     // Get the checkbox
     var checkBox = document.getElementById("flexCheckIndeterminate");
