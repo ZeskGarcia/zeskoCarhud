@@ -86,7 +86,7 @@ end)
 function ShowNotification(text)
     -- Custom Notify Check
     if (Config.CustomNotify) then
-        CustomNotification()
+        CustomNotification(text)
     else
         SetNotificationTextEntry("STRING")
         AddTextComponentString(text)
