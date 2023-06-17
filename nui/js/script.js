@@ -270,7 +270,7 @@ function configureSpeedometerSettings() {
     speedColor.html(appendableColorList);
     let bgColor = $('#carhudBgColorSelectBox');
     let curBgColor = "black";
-    let currentbgColor = localStorage.getItem('currentBgColor'); // get current font size from localStorage // current font size value, not real size from localStorage only to change it later from localStorage
+    let currentbgColor = localStorage.getItem('currentBgColor'); // get current font size from localStorage
     if (currentbgColor) {
         curBgColor = currentbgColor;
     } else {
@@ -347,7 +347,7 @@ function saveCurrentConfigValues() {
         localStorage.setItem('currentFontSize', fontSizeE);
         setNewValuesToFont('size', fontSizeE);
     }
-    var fontCE = document.getElementById("speedColorSelectBox").value; // getting selected value from FontSizeSelectBox
+    var fontCE = document.getElementById("speedColorSelectBox").value; // getting selected value from SpeedColorSelectBox
     let fontCV;
     if (fontCE != 1) {
         fontCV = fontCE;
