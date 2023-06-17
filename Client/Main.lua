@@ -47,7 +47,8 @@ Citizen.CreateThread(function()
             local vehicleHealth = GetVehicleEngineHealth(vehicle)
             local vehicleFuel = GetVehicleFuelLevel(vehicle)
             local currentGear = GetVehicleCurrentGear(vehicle)
-            SendNUIMessage({
+
+            local nuiArray = {
                 showCar = true,
                 action = editorStatus,
                 speed = speed,
@@ -55,12 +56,14 @@ Citizen.CreateThread(function()
                 vehicleHealth = vehicleHealth,
                 speedUnit = speedUnit,
                 currentGear = currentGear
-            })
+            }
+            SendNUIMessage(nuiArray)
             sleep = true;
         else
-            SendNUIMessage({
+            local nuiArray = {
                 showCar = false
-            })
+            }
+            SendNUIMessage(nuiArray)
             sleep = true;
         end
         if sleep then Citizen.Wait(50) end
@@ -81,7 +84,12 @@ RegisterNUICallback('exitEditor', function(data)
 end)
 
 function ShowNotification(text)
-    SetNotificationTextEntry("STRING")
-    AddTextComponentString(text)
-    DrawNotification(false, false)
+    -- Custom Notify Check
+    if (Config.CustomNotify) then
+        CustomNotification()
+    else
+        SetNotificationTextEntry("STRING")
+        AddTextComponentString(text)
+        DrawNotification(false, false)
+    end
 end
